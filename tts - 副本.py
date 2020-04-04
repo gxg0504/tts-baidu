@@ -83,11 +83,7 @@ def fetch_token():
 
 
 """  TOKEN end """
-
-if __name__ == '__main__':
-    token = fetch_token()
-    with open('1.txt', 'r', encoding='utf-8') as f:
-        TEXT = f.read(2048)
+def yield_data(TEXT,i):
     tex = quote_plus(TEXT)  # 此处TEXT需要两次urlencode
     print(tex)
     params = {'tok': token, 'tex': tex, 'per': PER, 'spd': SPD, 'pit': PIT, 'vol': VOL, 'aue': AUE, 'cuid': CUID,
@@ -110,7 +106,7 @@ if __name__ == '__main__':
         result_str = err.read()
         has_error = True
 
-    save_file = "error.txt" if has_error else 'result.' + FORMAT
+    save_file = "error.txt" if has_error else 'result%s.'%(i) + FORMAT
     with open(save_file, 'wb') as of:
         of.write(result_str)
 
@@ -120,3 +116,15 @@ if __name__ == '__main__':
         print("tts api  error:" + result_str)
 
     print("result saved as :" + save_file)
+
+
+if __name__ == '__main__':
+    token = fetch_token()
+    i = 1
+    with open('1.txt', 'r', encoding='utf-8') as f:
+        while True:
+            TEXT = f.read(2048)
+            if not TEXT:
+                break
+            yield_data(TEXT,i)
+            i = i + 1
