@@ -19,6 +19,8 @@ else:
 
 API_KEY = 'v3NjmgsTQEirW4YITsA2Odzu'
 SECRET_KEY = '8IQiXjGpYvfuEZrcQyHi8B5XK42PGt7b'
+# API_KEY = '4E1BG9lTnlSeIf1NQFlrSq6h'
+# SECRET_KEY = '544ca4657ba8002e3dea3ac2f5fdd241'
 
 TEXT = "使用语音合成技术的阅读类软件，能够为用户提供多种音库的朗读功能，释放用户的双手和双眼，提供更极致的阅读体验。"
 
