@@ -1,6 +1,6 @@
 file_name = '1.txt'
-time_min =  23
-time_sec = 46
+time_min =  26
+time_sec = 22
 
 
 try:
